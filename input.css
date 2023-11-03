@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .dropzone{
+        @apply duration-[.3s] w-[25rem] h-[15px] translate-x-[-1rem] top-full absolute rounded-b-[.1rem];
+    }
+    .dropzone--active{
+        @apply h-[16px] bg-slate-500;
+    }
+    .betweenZone {
+        @apply absolute top-full;
+    }
+    .topZone {
+        @apply relative top-0 translate-x-0 translate-y-[1rem];
+    }
+
+    
+}
+
