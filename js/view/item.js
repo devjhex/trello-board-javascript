@@ -8,10 +8,10 @@ export default class Item {
         this.elements = {};
         this.elements.root = Item.createRoot();
         this.elements.input = this.elements.root.querySelector('.trello-item-content');
-
         this.elements.root.dataset.id = id;
         this.elements.input.textContent = content;
 
+        //saves the current state of the content
         this.content = content;
 
         this.elements.root.appendChild(bottomDropZone);
@@ -31,8 +31,10 @@ export default class Item {
 
         }
 
+        //add the blur listener to fire when focus is lost
         this.elements.input.addEventListener("blur", onBlur);
 
+        //double click feature for deletion of an item
         this.elements.root.addEventListener("dblclick",()=>{
             const check = confirm("Are you sure you want to delete this item?");
 
@@ -46,13 +48,13 @@ export default class Item {
             }
         });
 
+        //the drag and drop event listeners
         this.elements.root.addEventListener("dragstart", e => {
             e.dataTransfer.setData('text/plain', id);
-        })
-
+        });
         this.elements.input.addEventListener("drop", e => {
             e.preventDefault();
-        })
+        });
 
     }
 

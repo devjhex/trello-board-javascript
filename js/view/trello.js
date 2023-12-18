@@ -4,16 +4,15 @@ export default class Trello{
     constructor(root){
         this.root = root;
         
-        
         Trello.columns().forEach(column => {
+
         //Create an instance column class
         const columnView = new Column (column.id, column.title);
 
         this.root.appendChild(columnView.elements.root);
+
         });
 
-       
-    
     }
 
    
